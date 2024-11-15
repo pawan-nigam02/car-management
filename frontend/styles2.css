@@ -1,0 +1,121 @@
+/* Reset and basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: Arial, sans-serif;
+    height: 100%;
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    align-items: center;  /* Center vertically */
+    background-image: linear-gradient(to bottom right, rgba(79, 51, 176, 1), rgb(135, 206, 235));
+}
+
+/* Header Styling */
+header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+header button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+header button:hover {
+    background-color: #0056b3;
+}
+
+/* Main container for product details */
+.product-detail-container {
+    width: 80%;  /* Increase the width to make it larger */
+    max-width: 1200px;  /* Ensure it's not too wide on larger screens */
+    min-height: 500px;  /* Set a minimum height to make it taller */
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* Title */
+h2#car-title {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Flex container for images */
+#car-images {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* Ensure images wrap on smaller screens */
+}
+
+#car-images img {
+    width: 45%; /* Images take up 45% of the container width, allowing space between them */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Description and tags */
+#car-description, #car-tags {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Button container */
+.button-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button.edit-button, button.delete-button {
+    padding: 14px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+button.edit-button {
+    background-color: #007bff;
+    color: white;
+}
+
+button.edit-button:hover {
+    background-color: #0056b3;
+}
+
+button.delete-button {
+    background-color: #f44336;
+    color: white;
+}
+
+button.delete-button:hover {
+    background-color: #e53935;
+}

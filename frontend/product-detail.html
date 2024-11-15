@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Details</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <header>
+        <button onclick="window.location.href='product-list.html'">Back to Listings</button>
+    </header>
+    
+    <div class="product-detail-container">
+        <h2 id="car-title">Car Title</h2>
+        <div id="car-images">
+            <!-- Car images will be dynamically loaded here -->
+        </div>
+        <p id="car-description">Description</p>
+        <p id="car-tags">Tags: </p>
+        <div class="button-container">
+            <button class="edit-button" onclick="editCar()">Edit</button>
+            <button class="delete-button" onclick="deleteCar()">Delete</button>
+        </div>
+    </div>
+
+    <script>
+        // Sample car data including Indian cars
+        const cars = [
+            { id: 1, title: 'Tesla Model S', description: 'Electric car with amazing features', tags: ['electric', 'luxury'], images: ['/images/Tesla1.jpeg', '/images/Tesla2.jpeg'] },
+            { id: 2, title: 'BMW X5', description: 'Luxury SUV with top features', tags: ['luxury', 'suv'], images: ['/images/bmw1.jpg', '/images/bmw2.jpg'] },
+            { id: 3, title: 'Audi Q7', description: 'Luxury SUV with great performance', tags: ['luxury', 'suv'], images: ['/images/audi1.jpg', '/images/audi2.jpg'] },
+            { id: 4, title: 'Ford Mustang', description: 'Iconic American Muscle car', tags: ['muscle', 'classic'], images: ['/images/ford1.jpg', '/images/ford2.jpg'] },
+            { id: 5, title: 'Mercedes-Benz S-Class', description: 'Luxury Sedan with elegance', tags: ['luxury', 'sedan'], images: ['/images/Mercedes1.jpg', '/images/Mercedes2.jpg'] },
+            { id: 6, title: 'Porsche 911', description: 'Luxury sports car', tags: ['sports', 'luxury'], images: ['/images/porsche1.jpg', '/images/porsche2.jpg'] },
+
+            // Indian car data
+            { id: 7, title: 'Tata Nexon', description: 'Compact SUV from Tata, offering great features at an affordable price.', tags: ['compact', 'SUV', 'Indian'], images: ['/images/tata1.jpg', '/images/tata2.jpg'] },
+            { id: 8, title: 'Mahindra XUV700', description: 'Premium SUV from Mahindra, known for its rugged build and advanced technology.', tags: ['premium', 'SUV', 'Indian'], images: ['/images/mahindra1.jpg', '/images/mahindra2.jpg'] },
+            { id: 9, title: 'Maruti Suzuki Swift', description: 'Popular hatchback from Maruti, famous for its fuel efficiency and reliability.', tags: ['hatchback', 'compact', 'Indian'], images: ['/images/swift1.jpg', '/images/swift2.jpg'] },
+            { id: 10, title: 'Hyundai Creta', description: 'Best-selling SUV in India, loved for its stylish design and practicality.', tags: ['suv', 'Indian'], images: ['/images/hyundai.jpg', '/images/hyundai2.jpg'] }
+        ];
+
+        function loadCarDetails() {
+            const params = new URLSearchParams(window.location.search);
+            const carId = parseInt(params.get('id'), 10);
+
+            // Find the car from the array using the ID
+            const car = cars.find(c => c.id === carId);
+            if (!car) {
+                alert('Car not found');
+                return;
+            }
+
+            // Display car details dynamically
+            document.getElementById('car-title').textContent = car.title;
+            document.getElementById('car-description').textContent = car.description;
+            document.getElementById('car-tags').textContent = 'Tags: ' + car.tags.join(', ');
+
+            const imagesContainer = document.getElementById('car-images');
+            car.images.forEach(image => {
+                const img = document.createElement('img');
+                img.src = image;
+                img.alt = car.title;
+                img.classList.add('car-image');
+                imagesContainer.appendChild(img);
+            });
+        }
+
+        function editCar() {
+            // Redirect to the product edit page with the car id (to handle editing logic)
+            const params = new URLSearchParams(window.location.search);
+            const carId = params.get('id');
+            window.location.href = `create-product.html?id=${carId}`;
+        }
+
+        function deleteCar() {
+            if (confirm('Are you sure you want to delete this car?')) {
+                alert('Car deleted successfully');
+                window.location.href = 'product-list.html';  // Redirect to car list
+            }
+        }
+
+        loadCarDetails();
+    </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Listings</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="head_item">
+            <h1>My Cars</h1>
+            <input type="text" id="search-bar" placeholder="Search cars..." oninput="searchCars()">
+            
+            <!-- Login/Signup Button -->
+            <div class="login">
+                <button class="auth-btn" onclick="window.location.href='index.html'">Login / Sign Up</button>
+            </div>
+        </div>
+    </header>
+    
+
+    <div id="car-list">
+        <!-- Static car listings -->
+        <div class="car-item">
+            <img src="/images/Tesla1.jpeg" alt="Tesla Model S" />
+            <div class="car-details">
+                <h3>Tesla Model S</h3>
+                <p>Electric car</p>
+                <button onclick="viewCar(1)">View Details</button>
+            </div>
+        </div>
+
+        <div class="car-item">
+            <img src="/images/bmw1.jpg" alt="BMW X5" />
+            <div class="car-details">
+                <h3>BMW X5</h3>
+                <p>Luxury SUV</p>
+                <button onclick="viewCar(2)">View Details</button>
+            </div>
+        </div>
+
+        <div class="car-item">
+            <img src="/images/audi1.jpg" alt="Audi Q7" />
+            <div class="car-details">
+                <h3>Audi Q7</h3>
+                <p>Luxury SUV with great performance</p>
+                <button onclick="viewCar(3)">View Details</button>
+            </div>
+        </div>
+
+        <div class="car-item">
+            <img src="/images/ford1.jpg" alt="Ford Mustang" />
+            <div class="car-details">
+                <h3>Ford Mustang</h3>
+                <p>Iconic American Muscle car</p>
+                <button onclick="viewCar(4)">View Details</button>
+            </div>
+        </div>
+
+        <div class="car-item">
+            <img src="/images/Mercedes1.jpg" alt="Mercedes-Benz S-Class" />
+            <div class="car-details">
+                <h3>Mercedes-Benz S-Class</h3>
+                <p>Luxury Sedan</p>
+                <button onclick="viewCar(5)">View Details</button>
+            </div>
+        </div>
+
+        <div class="car-item">
+            <img src="/images/porsche1.jpg" alt="Porsche 911" />
+            <div class="car-details">
+                <h3>Porsche 911</h3>
+                <p>Luxury sports car</p>
+                <button onclick="viewCar(6)">View Details</button>
+            </div>
+        </div>
+
+        <!-- Additional Indian cars -->
+        <div class="car-item">
+            <img src="/images/tata1.jpg" alt="Tata Nexon" />
+            <div class="car-details">
+                <h3>Tata Nexon</h3>
+                <p>Compact SUV from Tata</p>
+                <button onclick="viewCar(7)">View Details</button>
+            </div>
+        </div>
+
+        <div class="car-item">
+            <img src="/images/mahindra1.jpg" alt="Mahindra XUV700" />
+            <div class="car-details">
+                <h3>Mahindra XUV700</h3>
+                <p>Premium SUV from Mahindra</p>
+                <button onclick="viewCar(8)">View Details</button>
+            </div>
+        </div>
+
+        <div class="car-item">
+            <img src="/images/swift1.jpg" alt="Maruti Suzuki Swift" />
+            <div class="car-details">
+                <h3>Maruti Suzuki Swift</h3>
+                <p>Popular hatchback from Maruti</p>
+                <button onclick="viewCar(9)">View Details</button>
+            </div>
+        </div>
+
+        <div class="car-item">
+            <img src="/images/hyundai1.jpg" alt="Hyundai Creta" />
+            <div class="car-details">
+                <h3>Hyundai Creta</h3>
+                <p>Best-selling SUV in India</p>
+                <button onclick="viewCar(10)">View Details</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="create">
+        <button onclick="window.location.href='create-product.html'">Create New Car</button>
+    </div>
+
+    <script>
+        function viewCar(id) {
+            window.location.href = `product-detail.html?id=${id}`;
+        }
+
+        // Optional: Add search functionality (if needed)
+        function searchCars() {
+            const searchTerm = document.getElementById('search-bar').value.toLowerCase();
+            const carItems = document.querySelectorAll('.car-item');
+            carItems.forEach(item => {
+                const title = item.querySelector('h3').textContent.toLowerCase();
+                const description = item.querySelector('p').textContent.toLowerCase();
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    item.style.display = ''; // Show matching cars
+                } else {
+                    item.style.display = 'none'; // Hide non-matching cars
+                }
+            });
+        }
+    </script>
+</body>
+</html>

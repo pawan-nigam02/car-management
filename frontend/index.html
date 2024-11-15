@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Management - Sign Up / Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Wrapper to center the auth-container -->
+    <div class="center-wrapper">
+        <div class="auth-container">
+            <h1>Car Management System</h1>
+
+            <!-- Login Form -->
+            <div id="login-form">
+                <h2>Login</h2>
+                <form id="login">
+                    <input type="email" id="login-email" placeholder="Email" required><br>
+                    <input type="password" id="login-password" placeholder="Password" required><br>
+                    <button type="submit">Login</button>
+                </form>
+                <p id="switch-to-signup" onclick="toggleForm()">Don't have an account? Sign Up</p>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div id="signup-form" style="display: none;">
+                <h2>Sign Up</h2>
+                <form id="signup">
+                    <input type="text" id="name" placeholder="Full Name" required><br>
+                    <input type="email" id="email" placeholder="Email" required><br>
+                    <input type="text" id="phone" placeholder="Phone Number" required><br>
+                    <input type="text" id="city" placeholder="City" required><br>
+                    <input type="text" id="state" placeholder="State" required><br>
+                    <input type="password" id="create-password" placeholder="Create Password" required><br>
+                    <input type="password" id="confirm-password" placeholder="Confirm Password" required><br>
+                    <button type="submit">Sign Up</button>
+                </form>
+                <p id="switch-to-login" onclick="toggleForm()">Already have an account? Login</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Flag to switch between login and signup forms
+        let isLogin = true;
+
+        // Function to toggle between login and signup forms
+        function toggleForm() {
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            const switchToSignup = document.getElementById('switch-to-signup');
+            const switchToLogin = document.getElementById('switch-to-login');
+
+            if (isLogin) {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+                switchToSignup.style.display = 'none';
+                switchToLogin.style.display = 'block';
+            } else {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+                switchToSignup.style.display = 'block';
+                switchToLogin.style.display = 'none';
+            }
+
+            isLogin = !isLogin;
+        }
+
+        // Handle login form submission
+        document.getElementById('login').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            console.log('Logging in with:', email, password);
+
+            // Mock login
+            localStorage.setItem('authToken', 'user-auth-token');
+            window.location.href = 'product-list.html'; // Redirect after login
+        });
+
+        // Handle signup form submission
+        document.getElementById('signup').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const city = document.getElementById('city').value;
+            const state = document.getElementById('state').value;
+            const createPassword = document.getElementById('create-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (createPassword !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            console.log('Signing up with:', name, email, phone, city, state, createPassword);
+
+            // Mock signup
+            localStorage.setItem('authToken', 'user-auth-token');
+            window.location.href = 'product-list.html'; // Redirect after signup
+        });
+    </script>
+</body>
+</html>

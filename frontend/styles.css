@@ -1,0 +1,285 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    padding: 0; /* Remove padding from body */
+    height: 100vh;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom right, rgba(79, 51, 176, 1), rgb(135, 206, 235));
+}
+
+/* Container for central alignment */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+/* Centering the auth-container using a wrapper */
+.center-wrapper {
+    display: flex;
+    justify-content: center;  /* Centers the container horizontally */
+    align-items: center;      /* Centers the container vertically */
+    height: 100vh;            /* Makes the wrapper take full viewport height */
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.auth-container h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.auth-container input:focus {
+    border-color: #0056b3;
+}
+
+.auth-container button {
+    width: 100%;
+    padding: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.auth-container button:hover {
+    background-color: #0056b3;
+}
+
+.auth-container p {
+    margin-top: 15px;
+    color: #888;
+}
+
+.auth-container p:hover {
+    cursor: pointer;
+    color: #0056b3;
+}
+
+/* Form Section */
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Header Styles */
+header {
+    width: 95%;
+    padding: 20px 20px;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin-left: 35px;
+    margin-top: 10px;
+    border-radius: 15px;
+}
+
+.head_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ensure it spans full width */
+}
+
+.head_item h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #4CAF50;
+    margin: 0;
+    flex-shrink: 0; /* Prevent the title from shrinking */
+}
+
+#search-bar {
+    width: 60%; /* Adjust width for search bar */
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin: 0 20px;
+    background-color: white;
+    flex-grow: 1; /* Allow it to grow and fill space */
+    transition: border-color 0.3s;
+}
+
+#search-bar:focus {
+    border-color: #0056b3;
+}
+
+.auth-btn {
+    padding: 8px 15px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.auth-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Auth Button for top right */
+.login {
+    margin-left: auto; /* Align login button to the right */
+}
+
+/* Main content for cars */
+#car-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Default 4 items per row */
+    gap: 20px;
+    padding: 20px;
+    margin-top: 50px; /* Adjust spacing for car list */
+}
+
+.car-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.car-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.car-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.car-details h3 {
+    margin: 10px 0 5px 0;
+    font-size: 1.2em;
+}
+
+.car-details p {
+    font-size: 1em;
+    color: #555;
+}
+
+.car-details button {
+    padding: 8px 15px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.car-details button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design for Car Listings */
+@media (max-width: 1200px) {
+    #car-list {
+        grid-template-columns: repeat(3, 1fr); /* 3 items per row on medium screens */
+    }
+}
+
+@media (max-width: 900px) {
+    #car-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row on smaller screens */
+    }
+}
+
+@media (max-width: 600px) {
+    #car-list {
+        grid-template-columns: 1fr; /* 1 item per row on very small screens */
+    }
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.create button{
+    width: 60%;
+    margin-left: 300px;
+    margin-bottom: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .auth-container {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    #search-bar {
+        width: 100%; /* Full width for search bar on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    .car-item {
+        padding: 10px;
+    }
+
+    .product-detail-container {
+        padding: 20px;
+    }
+}
+

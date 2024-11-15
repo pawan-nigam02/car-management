@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Product - Car Management</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+    <header>
+        <button onclick="window.location.href='product-list.html'">Back to Listings</button>
+        <h1>Create New Car</h1>
+    </header>
+
+    <div class="form-container">
+        <div class="product-form-container">
+            <form id="create-product-form">
+                <label for="car-title">Car Title</label>
+                <input type="text" id="car-title" placeholder="Enter car title" required><br>
+
+                <label for="car-description">Car Description</label>
+                <textarea id="car-description" placeholder="Enter car description" rows="4" required></textarea><br>
+
+                <label for="car-tags">Car Tags (separate with commas)</label>
+                <input type="text" id="car-tags" placeholder="e.g., luxury, sedan, electric" required><br>
+
+                <label for="car-images">Car Images (URLs)</label>
+                <input type="text" id="car-images" placeholder="Enter image URLs separated by commas" required><br>
+
+                <button type="submit">Create Car Listing</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('create-product-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const title = document.getElementById('car-title').value;
+            const description = document.getElementById('car-description').value;
+            const tags = document.getElementById('car-tags').value.split(',').map(tag => tag.trim());
+            const images = document.getElementById('car-images').value.split(',').map(url => url.trim());
+
+            const newCar = {
+                id: Date.now(),  // Generate a unique ID using timestamp
+                title,
+                description,
+                tags,
+                images
+            };
+
+            console.log('New car created:', newCar);
+            alert('Car listing created successfully!');
+            window.location.href = 'product-list.html'; // Redirect to product list page
+        });
+    </script>
+</body>
+</html>
